@@ -4,6 +4,7 @@ import fishService from '../../services/fish'
 
 const FishDetails= () => {
   const [fish,setFish] =useState(null)
+  const [error,setError]=useState(null)
   const { id } =useParams()
   const navigate=useNavigate()
 
@@ -14,15 +15,19 @@ const FishDetails= () => {
         setFish(data)
       }catch(err){
         console.error('Error fetching fish', err)
+        setError(err.message)
       } 
     }
     fetchFish()
   },[id])
 
-return (
+  if (error) return <div>Error: {error}</div>
+  if (!fish) return <div>Loading...</div>
   
- 
-  <div>   
+
+return (
+  <div> 
+    {console.log(fish)}
     <button onClick={() => navigate(-1)}> Back to Fish List</button>
     <div>
       {fish.imageUrl&&(
@@ -39,5 +44,4 @@ return (
   </div>
   )
 }
-
 export default FishDetails
