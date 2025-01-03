@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react"
-import fishService from '../../services/fish'
+import fishService from '../services/fish'
 import { Link } from 'react-router-dom'
 
 const FishList= () => {
