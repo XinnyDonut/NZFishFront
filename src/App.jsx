@@ -1,7 +1,10 @@
-import { BrowserRouter , Routes, Route ,Link, Navigate } from 'react-router-dom'
+import { BrowserRouter , Routes, Route, Navigate } from 'react-router-dom'
 import {useState,useEffect} from 'react'
 import FishList from './components/fish/FishList'
 import FishDetails from './components/fish/FishDetails'
+import Layout from './components/Layout'
+import NavBar from './components/NavBar'
+import Hero from './components/Hero'
 import Login from './components/Login'
 import Register from './components/Register'
 import authService from './services/auth'
@@ -29,32 +32,14 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <div>
-        <nav>
-          <div>
-            <Link to="/">NZ Fish Guide</Link>
-            <div>
-              {user ? (
-                <>
-                  <Link to="/cooking-logs">My Cooking Logs</Link>
-                  <button onClick={handleLogout}>Logout</button>
-                </>
-              ) : (
-                <>
-                  <Link to="/login">Login</Link>
-                  <Link to="/register">Register</Link>
-                </>
-              )}
-            </div>
-          </div>
-        </nav>
+      <NavBar user={user} handleLogout={handleLogout} />
+      <Hero/>
+      <Layout>
         <Routes>
           <Route path="/" element={<FishList />} />
           <Route path="/fish/:id" element={<FishDetails />} />
           <Route path="/login" element={<Login setUser={setUser} />} />
-          <Route path="/register" element={<Register setUser={setUser} />} />
-          
-          
+          <Route path="/register" element={<Register setUser={setUser} />} />             
           <Route 
             path="/cooking-logs" 
             element={
@@ -64,7 +49,7 @@ const App = () => {
             } 
           />
         </Routes>
-      </div>  
+      </Layout>
     </BrowserRouter>
   )
 }
