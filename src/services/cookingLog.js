@@ -7,8 +7,7 @@ const config = ()=>{
   const token=authService.getToken()
   return {
     headers:
-      {Authorization: `Bearer ${token}`}
-    
+      {Authorization: `Bearer ${token}`}  
   }
 }
 
