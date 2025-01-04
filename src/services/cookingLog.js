@@ -6,9 +6,9 @@ const baseUrl='/api/logs'
 const config = ()=>{
   const token=authService.getToken()
   return {
-    headers:{
-      Authorization: `Bearer ${token}`
-    }
+    headers:
+      {Authorization: `Bearer ${token}`}
+    
   }
 }
 
@@ -19,7 +19,7 @@ const create =async (newLog) => {
 
 const getByFish= async (fishId) => {
   const response =await axios.get(`${baseUrl}/fish/${fishId}`)
-  return response.data
+  return response.data 
 }
 
 const getProfile=async () => {
