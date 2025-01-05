@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 import authService from '../services/auth'
+import { FormContainer, FormGroup, Input, Button }  from'./FormUi'
 
 const Register =({setUser}) => {
   const[username,setUsername]=useState('')
@@ -43,40 +44,36 @@ const Register =({setUser}) => {
   }
 
   return (
-    <div>
-      <h2>Register</h2>
-      {error && <div>{error}</div>}
+    <FormContainer title='Register'>
       <form onSubmit={handleRegister}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
+        <FormGroup label='username'>
+          <Input 
             value={username}
             onChange={event=>setUsername(event.target.value)}
             required
           />
+        </FormGroup>
+        <FormGroup label='name'>
+          <Input 
+            value={name}
+            onChange={event=>setName(event.target.value)}
+            required
+          />
+        </FormGroup>
+        <FormGroup label='password'>
+          <Input
+            type="password" 
+            value={password}
+            onChange={event=>setPassword(event.target.value)}
+            required
+            minLength={5}
+          />
+        </FormGroup>
+        <div className="flex justify-end">
+          <Button type="submit">Register</Button>
         </div>
-        <div>
-          <label htmlFor="name">Name:</label>
-            <input
-              type="text"
-              value={name}
-              onChange={event=>setName(event.target.value)}
-            />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-            <input
-              type="password"
-              value={password}
-              onChange={event=>setPassword(event.target.value)}
-              required
-              minLength={5}
-            />
-        </div>
-        <button type="submit">Register</button>
       </form>
-    </div>
+    </FormContainer>
   )
 }
 

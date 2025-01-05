@@ -6,7 +6,7 @@ const NavBar = ({ user, handleLogout }) => {
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
         {/* Logo and site name */}
         <Link to="/" className="text-2xl font-bold text-white">
-          NZ Fish Guide
+          New Zealand Fish
         </Link>
 
         {/* Navigation Links is their own flex! */}

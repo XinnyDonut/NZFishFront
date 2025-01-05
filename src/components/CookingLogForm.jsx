@@ -1,6 +1,7 @@
 import { useState,useEffect } from "react"
 import logService from'../services/cookingLog'
 import authService from'../services/auth'
+import { FormContainer, FormGroup, Input, TextArea, Button }  from'./FormUi'
 
 const CookingLogForm = ({ fishId, onLogCreated}) => {
   const [name,setName]=useState('')
@@ -36,28 +37,28 @@ const CookingLogForm = ({ fishId, onLogCreated}) => {
   }
 
     return(
-      <div>
-        <h3>Add Your Cooking experience</h3>
-        {error&&<div>{error}</div>}
-        <form onSubmit={handleSubmit}>
-        <div>
-          <label>Recipe name:</label>
-          <input
+      <FormContainer title='Note down your cooking experience' error={error}>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <FormGroup label='Title'>
+          <Input
           type="text" value={name} onChange={e=>setName(e.target.value)} required
           />
-        </div>
+          </FormGroup>
 
-        <div>
-          <label>Cooking Notes:</label>
-          <textarea
+          <FormGroup label="Cooking Notes">
+          <TextArea
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            rows="8"
+            placeholder="Share your cooking tips here!"
+            rows="4"
           />
-        </div>
-        <button type="submit">Add Cooking Log</button>
+        </FormGroup>
+
+          <div className="flex justify-end">
+            <Button type="submit">Share</Button>
+          </div>
         </form>
-      </div>
+      </FormContainer>
     )
   }
 export default CookingLogForm

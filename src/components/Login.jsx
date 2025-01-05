@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import authService from '../services/auth'
+import { FormContainer, FormGroup, Input, TextArea, Button }  from'./FormUi'
+
 
 const Login = ({setUser}) => {
   const [username,setUserName]=useState('')
@@ -22,29 +24,26 @@ const Login = ({setUser}) => {
     }
   }
   return (
-    <div>
-      <h2>Log in</h2>
-      {error && <div>{error}</div>}
+    <FormContainer title='Login' error={error}>
       <form onSubmit={handleLogin}>
-        <div>
-          <label>Username:</label>
-          <input
-            type='text' value={username}
-            onChange= {event=>setUserName(event.target.value)}
-            required
+        <FormGroup label="username">
+          <Input
+            value={username}
+            onChange={e=>setUserName(e.target.value)}
           />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password" value={password}
-            onChange={event=>setPassword(event.target.value)}
-            required
+        </FormGroup>
+        <FormGroup label="Password">
+          <Input
+            type="password"
+            value={password}
+            onChange={e=>setPassword(e.target.value)}
           />
+        </FormGroup>
+        <div className="flex justify-end">
+          <Button type="submit">Log in</Button>
         </div>
-        <button type='submit'>Login</button>
       </form>
-    </div>
+    </FormContainer>
   )
 }
 export default Login
