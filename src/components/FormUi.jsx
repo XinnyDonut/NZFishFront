@@ -55,7 +55,7 @@ const Button = ({ variant = "primary", className = "", ...props }) => {
   const baseStyles = "px-4 py-2 rounded-md font-medium transition-colors duration-200";
   const variants = {
     primary: "bg-ocean-600 text-white hover:bg-ocean-700",
-    secondary: "bg-gray-200 text-gray-800 hover:bg-gray-300",
+    secondary: "px-1 py-1 text-xs bg-gray-200 text-gray-800 hover:bg-gray-300 ",
   };
 
   return (

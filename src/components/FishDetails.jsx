@@ -4,6 +4,7 @@ import fishService from '../services/fish'
 import CookingLogForm from './CookingLogForm'
 import FishCookingLogs from './FishCookingLogs'
 import authService from '../services/auth'
+import { Button } from'./FormUi'
 
 const FishDetails= () => {
   const [fish,setFish] =useState(null)
@@ -41,16 +42,18 @@ const FishDetails= () => {
   }  
 
 return (
-  <div> 
-    <button onClick={() => navigate(-1)}> Back to Fish List</button>
+  <div>
+    <div className="flex justify-start"> 
+    <Button onClick={() => navigate(-1)}> Back to Fish List</Button>
+    </div>
     <div>
       {fish.imageUrl&&(
         <img src={fish.imageUrl} alt={fish.name}/>
       )}
       <div>
-        <h1>{fish.name}</h1>
+        <h1 className='text-lg font-black font-mono text-ocean-700'>{fish.name}</h1>
         {fish.MaoriName&&(
-          <h2>Māori Name: {fish.MaoriName}</h2>
+          <h2 className='text-md font-bold font-mono  text-ocean-500' >{fish.MaoriName}</h2>
         )}
         <p>{fish.description}</p>
       </div>

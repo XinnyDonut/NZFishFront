@@ -1,20 +1,11 @@
 import { useState,useEffect } from "react"
 import logService from'../services/cookingLog'
-import authService from'../services/auth'
 import { FormContainer, FormGroup, Input, TextArea, Button }  from'./FormUi'
 
 const CookingLogForm = ({ fishId, onLogCreated}) => {
   const [name,setName]=useState('')
   const [note,setNote]=useState('')
   const [error,setError]=useState(null)
-
-  useEffect(() => {
-    const user = window.localStorage.getItem('fishAppUser')
-    console.log('Stored user data:', user)
-    console.log('Parsed user data:', JSON.parse(user))
-    console.log('Token from auth service:', authService.getToken())
-  }, [])
-
 
   const handleSubmit= async(e)=>{
     e.preventDefault()
@@ -37,7 +28,7 @@ const CookingLogForm = ({ fishId, onLogCreated}) => {
   }
 
     return(
-      <FormContainer title='Note down your cooking experience' error={error}>
+      <FormContainer title='Note down your experience' error={error}>
         <form onSubmit={handleSubmit} className="space-y-4">
           <FormGroup label='Title'>
           <Input
@@ -45,11 +36,11 @@ const CookingLogForm = ({ fishId, onLogCreated}) => {
           />
           </FormGroup>
 
-          <FormGroup label="Cooking Notes">
+          <FormGroup label="Notes">
           <TextArea
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            placeholder="Share your cooking tips here!"
+            placeholder="Share your tips here! Be it cooking, fishing or anything related!"
             rows="4"
           />
         </FormGroup>
