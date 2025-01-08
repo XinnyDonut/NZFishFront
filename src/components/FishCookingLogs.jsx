@@ -48,7 +48,7 @@ const LogDisplay =({log,user,handleEdit,handleDelete}) => {
     )}
       {user&&log.user.username===user.username&&(
       <div className='flex justify-end gap-2 '>
-        <Button variant = "secondary" onClick={()=>handleEdit(log)}>Update</Button>
+        <Button variant = "secondary" onClick={()=>handleEdit(log)}>Edit</Button>
         <Button variant = "secondary" className='text-red-600' onClick={() => handleDelete(log.id)}>Delete</Button>
       </div>)}  
     </div>
@@ -60,7 +60,7 @@ const FishCookingLogs= ({fishId,refreshTrigger}) => {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [editingLogId,setEditingLogId]=useState('')
-  const[edittedFormData,setEdittedFormData]=useState({})
+  const[edittedFormData,setEdittedFormData]=useState({name:'',note:''})
   const user=authService.getUser()
   
 
@@ -150,7 +150,7 @@ const FishCookingLogs= ({fishId,refreshTrigger}) => {
           </p>
         </div>
       ) : (
-        <div className="space-y-6">
+        <div className="space-y-6">{/*this is the spacing between logs!*/} 
           {logs.map((log) => (
             <div 
               key={log.id}

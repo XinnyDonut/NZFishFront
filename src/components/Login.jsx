@@ -32,7 +32,7 @@ const Login = ({setUser}) => {
             onChange={e=>setUserName(e.target.value)}
           />
         </FormGroup>
-        <FormGroup label="Password">
+        <FormGroup label="password">
           <Input
             type="password"
             value={password}
