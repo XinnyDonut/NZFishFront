@@ -1,8 +1,58 @@
-# React + Vite
+# **NEW ZEALAND FISH GUIDE**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based web application that serves as a guide to New Zealand fish species. 
+Users can explore different fish species, share their experiences related to a fish, and learn from others.
 
-Currently, two official plugins are available:
+## Live Application & Respositories
+- **Live Demo:** https://nzfish.onrender.com
+> *Please note the Live Demon might take up to 40 seconds to load*
+- **Backend Repository:** https://github.com/XinnyDonut/NZFish
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+
+## Features
+
+- **Fish Species Catalog:** Browse through various New Zealand fish species with fish photo, Māori name and brief information
+
+- **User Authentication:** Login and registration system
+
+- **Fish Logs:** Registered users can:
+  - Create and share fish logs
+  - View logs from other users
+  - Edit and delete their own logs
+
+- **Responsive Design:** Mobile-friendly interface using Tailwind CSS
+
+## Tech Stack
+- React (with React Router for navigation)
+- Tailwind CSS for styling
+- Axios for API requests
+- Local storage for JWT token management
+
+## Key Features Implementation
+
+### Authentication
+- JWT-based authentication using local storage
+- Protected routes using React Router
+- Login/Register forms with error handling
+
+### State Management
+- React useState for component-level state
+- useEffect for data fetching
+- Props for component communication
+
+### Routing
+- React Router for navigation
+- Protected routes for authenticated users
+
+## Future Enhancements
+
+- Rating system for logs
+- Photo upload capability
+- User profiles with logs
+- Admin authentication and role-based access control
+
+## Acknowledgements
+- Fish species photos and information: Moana New Zealand
+- Background picture: Vecteezy.com
+- Hero fish photo: W W on Pexels.com
