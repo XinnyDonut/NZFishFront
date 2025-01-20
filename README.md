@@ -3,6 +3,8 @@
 A React-based web application that serves as a guide to New Zealand fish species. 
 Users can explore different fish species, share their experiences related to a fish, and learn from others.
 
+![NZ Fish Guide Homepage](https://res.cloudinary.com/dqc0mub8o/image/upload/v1737331521/nzfish_bcq3y2.png)
+
 ## Live Application & Respositories
 - **Live Demo:** https://nzfish.onrender.com
 > *Please note the Live Demon might take up to 40 seconds to load*
